@@ -15,10 +15,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 package neatlogic.framework.deploy.exception;
 
 import neatlogic.framework.cmdb.dto.cientity.CiEntityVo;
+import neatlogic.framework.cmdb.dto.resourcecenter.ResourceVo;
 import neatlogic.framework.exception.core.ApiRuntimeException;
 
 public class DeployAppEnvAuthException extends ApiRuntimeException {
-    public DeployAppEnvAuthException(CiEntityVo appSystemCiEntity, CiEntityVo envCiEntity) {
+    public DeployAppEnvAuthException(CiEntityVo appSystemCiEntity, ResourceVo envCiEntity) {
         super("您没有系统：{0}({1})下的环境：{2}({3})的【环境权限】", appSystemCiEntity.getName(), appSystemCiEntity.getId(), envCiEntity.getName(), envCiEntity.getId());
     }
 }
