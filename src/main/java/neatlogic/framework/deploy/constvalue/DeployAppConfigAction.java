@@ -15,6 +15,7 @@ import java.util.List;
 public enum DeployAppConfigAction {
     VIEW("view", "查看配置"),
     EDIT("edit", "编辑配置"),
+    EXECUTE("execute", "执行"),
     VERSION_AND_PRODUCT_MANAGER("versionAndProductManager", "版本&制品管理"),
     PIPELINE("pipeline", "超级流水线权限"),
     ;
