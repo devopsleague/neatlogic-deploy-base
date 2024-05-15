@@ -1,6 +1,7 @@
 package neatlogic.framework.deploy.auth;
 
 import neatlogic.framework.auth.core.AuthBase;
+import neatlogic.framework.autoexec.auth.AUTOEXEC;
 import neatlogic.framework.cmdb.auth.label.CMDB;
 
 import java.util.Arrays;
@@ -33,6 +34,6 @@ public class DEPLOY_BASE extends AuthBase {
 
     @Override
     public List<Class<? extends AuthBase>> getIncludeAuths() {
-        return Arrays.asList(CMDB.class, DEPLOY.class);
+        return Arrays.asList(CMDB.class, DEPLOY.class, AUTOEXEC.class);
     }
 }
