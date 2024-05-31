@@ -48,7 +48,7 @@ public class DeployAppEnvAutoConfigKeyValueVo {
     }
 
     public String getValue() {
-        if(StringUtils.isNotBlank(getType())&& Objects.equals(getType(),ParamType.PASSWORD.getValue())){
+        if(StringUtils.isNotBlank(value) && StringUtils.isNotBlank(getType())&& Objects.equals(getType(),ParamType.PASSWORD.getValue())){
             return RC4Util.encrypt(value);
         }
         return value;
