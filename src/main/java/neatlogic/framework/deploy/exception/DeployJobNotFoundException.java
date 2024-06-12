@@ -11,7 +11,10 @@ public class DeployJobNotFoundException extends ApiRuntimeException {
     private static final long serialVersionUID = -857892516459228779L;
 
     public DeployJobNotFoundException(String appSystemName, String appModuleName) {
-        super("{0}下的{1}模块尚未执行过任何作业", appSystemName, appModuleName);
+        super("nfde.deployjobnotfoundexception.deployjobnotfoundexception.appmodule", appSystemName, appModuleName);
     }
 
+    public DeployJobNotFoundException(Long autoexecJobId) {
+        super("nfde.deployjobnotfoundexception.deployjobnotfoundexception.autoexecjobid", autoexecJobId);
+    }
 }
