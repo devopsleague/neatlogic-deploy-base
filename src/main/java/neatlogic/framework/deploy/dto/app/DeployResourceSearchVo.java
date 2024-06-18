@@ -80,7 +80,7 @@ public class DeployResourceSearchVo extends ResourceSearchVo {
 
     public Integer getIsHasAllAuthority() {
         if (isHasAllAuthority == null) {
-            if (AuthActionChecker.check(DEPLOY_MODIFY.class)) {
+            if (Boolean.TRUE.equals(AuthActionChecker.check(DEPLOY_MODIFY.class))) {
                 isHasAllAuthority = 1;
             } else {
                 isHasAllAuthority = 0;
