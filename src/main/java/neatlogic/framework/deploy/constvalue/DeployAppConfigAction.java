@@ -13,19 +13,22 @@ import java.util.List;
  * @date 2022/05/24 4:16 下午
  */
 public enum DeployAppConfigAction {
-    VIEW("view", "查看配置"),
-    EDIT("edit", "编辑配置"),
-    EXECUTE("execute", "执行"),
-    VERSION_AND_PRODUCT_MANAGER("versionAndProductManager", "版本&制品管理"),
-    PIPELINE("pipeline", "超级流水线权限"),
+    VIEW("view", "nfdc.deployappconfigaction.view","nfdc.deployappconfigaction.viewdesc"),
+    EDIT("edit", "nfdc.deployappconfigaction.edit","nfdc.deployappconfigaction.editdesc"),
+    EXECUTE("execute", "nfdc.deployappconfigaction.execute","nfdc.deployappconfigaction.executedesc"),
+    AUTH("auth", "nfdc.deployappconfigaction.auth","nfdc.deployappconfigaction.authdesc"),
+    VERSION_AND_PRODUCT_MANAGER("versionAndProductManager", "nfdc.deployappconfigaction.versionandproductmanager","nfdc.deployappconfigaction.versionandproductmanagerdesc"),
+    PIPELINE("pipeline", "nfdc.deployappconfigaction.pipeline","")
     ;
 
     private final String value;
     private final String text;
+    private final String description;
 
-    DeployAppConfigAction(String value, String text) {
+    DeployAppConfigAction(String value, String text,String description) {
         this.value = value;
         this.text = text;
+        this.description = description;
     }
 
     public String getValue() {
@@ -34,6 +37,10 @@ public enum DeployAppConfigAction {
 
     public String getText() {
         return $.t(text);
+    }
+
+    public String getDescription() {
+        return $.t(description);
     }
 
     public static List<JSONObject> getValueTextList() {
@@ -65,6 +72,7 @@ public enum DeployAppConfigAction {
                     {
                         this.put("value", action.getValue());
                         this.put("text", action.getText());
+                        this.put("description", action.getDescription());
                     }
                 });
             }
