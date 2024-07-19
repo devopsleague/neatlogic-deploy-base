@@ -115,6 +115,12 @@ public class DeployVersionVo extends BaseEditorVo {
     @EntityField(name = "term.deploy.criticalstarcvecount", type = ApiParamType.LONG)
     private Long criticalStarCveCount;
 
+    @EntityField(name = "环境Id", type = ApiParamType.LONG)
+    private Long envId;
+
+    @EntityField(name = "当前环境BuildNo", type = ApiParamType.INTEGER)
+    private Integer currentEnvBuildNo;
+
     public DeployVersionVo() {
     }
 
@@ -474,5 +480,21 @@ public class DeployVersionVo extends BaseEditorVo {
 
     public void setCriticalStarCveCount(Long criticalStarCveCount) {
         this.criticalStarCveCount = criticalStarCveCount;
+    }
+
+    public Long getEnvId() {
+        return envId;
+    }
+
+    public void setEnvId(Long envId) {
+        this.envId = envId;
+    }
+
+    public Integer getCurrentEnvBuildNo() {
+        return currentEnvBuildNo;
+    }
+
+    public void setCurrentEnvBuildNo(Integer currentEnvBuildNo) {
+        this.currentEnvBuildNo = currentEnvBuildNo;
     }
 }
