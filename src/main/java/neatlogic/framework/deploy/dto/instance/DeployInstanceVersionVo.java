@@ -7,16 +7,18 @@ import neatlogic.framework.restful.annotation.EntityField;
 import java.util.Date;
 
 public class DeployInstanceVersionVo extends BaseEditorVo {
-    @EntityField(name = "应用系统id", type = ApiParamType.LONG)
+    @EntityField(name = "term.cmdb.appsystemid", type = ApiParamType.LONG)
     private Long appSystemId;
-    @EntityField(name = "应用模块id", type = ApiParamType.LONG)
+    @EntityField(name = "term.cmdb.appmoduleid", type = ApiParamType.LONG)
     private Long appModuleId;
-    @EntityField(name = "环境id", type = ApiParamType.LONG)
+    @EntityField(name = "term.cmdb.envid", type = ApiParamType.LONG)
     private Long envId;
     @EntityField(name = "实例id", type = ApiParamType.LONG)
     private Long resourceId;
-    @EntityField(name = "版本id", type = ApiParamType.LONG)
+    @EntityField(name = "common.versionid", type = ApiParamType.LONG)
     private Long versionId;
+    @EntityField(name = "term.deploy.version", type = ApiParamType.STRING)
+    private String version;
     @EntityField(name = "编译号", type = ApiParamType.INTEGER)
     private Integer buildNo;
 
@@ -81,6 +83,14 @@ public class DeployInstanceVersionVo extends BaseEditorVo {
 
     public void setVersionId(Long versionId) {
         this.versionId = versionId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public Integer getBuildNo() {
