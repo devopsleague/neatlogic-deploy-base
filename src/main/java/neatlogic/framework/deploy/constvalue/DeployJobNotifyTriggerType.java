@@ -14,8 +14,12 @@ You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.*/
 package neatlogic.framework.deploy.constvalue;
 
+import neatlogic.framework.autoexec.constvalue.JobStatus;
 import neatlogic.framework.notify.core.INotifyTriggerType;
-import neatlogic.framework.util.I18n;
+import neatlogic.framework.util.$;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author longrf
@@ -24,17 +28,26 @@ import neatlogic.framework.util.I18n;
 
 public enum DeployJobNotifyTriggerType implements INotifyTriggerType {
 
-    FAILED("failed", new I18n("作业失败"), new I18n("作业失败时触发通知")),
+    JOB_FAILED("jobfailed", "nfac.autoexecjobnotifytriggertype.text.jobfailed", "nfac.autoexecjobnotifytriggertype.description.jobfailed",
+            Arrays.asList(JobStatus.FAILED.getValue())),
+
+    JOB_COMPLETED("jobcompleted", "nfac.autoexecjobnotifytriggertype.text.jobcompleted", "nfac.autoexecjobnotifytriggertype.description.jobcompleted",
+            Arrays.asList(JobStatus.COMPLETED.getValue())),
+
+    JOB_WAIT_INPUT("jobwaitinput", "nfac.autoexecjobnotifytriggertype.text.jobwaitinput", "nfac.autoexecjobnotifytriggertype.description.jobwaitinput",
+            Arrays.asList(JobStatus.WAIT_INPUT.getValue())),
     ;
 
     private final String trigger;
-    private final I18n text;
-    private final I18n description;
+    private final String text;
+    private final String description;
+    private final List<String> jobStatusList;
 
-    DeployJobNotifyTriggerType(String _trigger, I18n _text, I18n _description) {
+    DeployJobNotifyTriggerType(String _trigger, String _text, String _description, List<String> _jobStatusList) {
         this.trigger = _trigger;
         this.text = _text;
         this.description = _description;
+        this.jobStatusList = _jobStatusList;
     }
 
     @Override
@@ -44,12 +57,12 @@ public enum DeployJobNotifyTriggerType implements INotifyTriggerType {
 
     @Override
     public String getText() {
-        return text.toString();
+        return $.t(text);
     }
 
     @Override
     public String getDescription() {
-        return description.toString();
+        return $.t(description);
     }
 
     public static String getText(String trigger) {
@@ -64,6 +77,15 @@ public enum DeployJobNotifyTriggerType implements INotifyTriggerType {
     public static DeployJobNotifyTriggerType getTrigger(String trigger) {
         for (DeployJobNotifyTriggerType n : values()) {
             if (n.getTrigger().equals(trigger)) {
+                return n;
+            }
+        }
+        return null;
+    }
+
+    public static DeployJobNotifyTriggerType getTriggerByStatus(String status) {
+        for (DeployJobNotifyTriggerType n : values()) {
+            if (n.jobStatusList.contains(status)) {
                 return n;
             }
         }
