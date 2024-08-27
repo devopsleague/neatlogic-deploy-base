@@ -55,5 +55,14 @@ public enum DeployCiAuditStatus implements IEnum {
         }
         return array;
     }
+
+    public static String getText(String value) {
+        for (DeployCiAuditStatus status : DeployCiAuditStatus.values()) {
+            if (status.getValue().equals(value)) {
+                return status.getText();
+            }
+        }
+        return null;
+    }
     
 }
