@@ -1,14 +1,14 @@
 package neatlogic.framework.deploy.dto.ci;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import neatlogic.framework.common.audit.AuditVoHandler;
 import neatlogic.framework.common.config.Config;
 import neatlogic.framework.common.constvalue.ApiParamType;
 import neatlogic.framework.common.dto.BaseEditorVo;
 import neatlogic.framework.deploy.constvalue.DeployCiActionType;
+import neatlogic.framework.deploy.constvalue.DeployCiAuditStatus;
 import neatlogic.framework.restful.annotation.EntityField;
-import neatlogic.framework.restful.enums.ApiInvokedStatus;
 import neatlogic.framework.util.SnowflakeUtil;
-import com.alibaba.fastjson.annotation.JSONField;
 import org.apache.commons.lang3.StringUtils;
 
 public class DeployCiAuditVo extends BaseEditorVo implements AuditVoHandler {
@@ -125,7 +125,7 @@ public class DeployCiAuditVo extends BaseEditorVo implements AuditVoHandler {
 
     public String getStatusName() {
         if (StringUtils.isNotBlank(status) && StringUtils.isBlank(statusName)) {
-            statusName = ApiInvokedStatus.getApiInvokedStatusText(status);
+            statusName = DeployCiAuditStatus.getText(status);
         }
         return statusName;
     }
