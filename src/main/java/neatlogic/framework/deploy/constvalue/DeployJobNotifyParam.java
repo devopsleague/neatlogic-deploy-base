@@ -18,6 +18,7 @@ public enum DeployJobNotifyParam implements INotifyParam {
     JOBID("deployJobId", "作业ID", ParamType.NUMBER),
     JOBNAME("deployJobName", "作业名称", ParamType.STRING),
     JOBSTATUS("deployJobStatus", "作业状态", ParamType.STRING),
+    JOBSTATUSNAME("deployJobStatusName", "作业状态名", ParamType.STRING),
     JOBPHASELIST("deployJobPhaseList", "阶段列表", ParamType.ARRAY),
     TRIGGERTYPENAME("deployTriggerTypeName", "触发方式", ParamType.STRING),
     DEPLOYJOBSTARTTIME("deployJobStartTime", "作业开始时间", ParamType.STRING),
